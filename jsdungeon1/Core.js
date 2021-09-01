@@ -22,30 +22,37 @@ function update() {
         manageTitle();
     } else if (game.scene === 'Menu') {
         manageMenu();
+    } else if (game.scene === 'DungeonReady') {
+        manageDungeonReady();
+    } else if (game.scene === 'Battle') {
+        manageBattle();
     }
 }
 
 function mouseUp(event) {
-    if (event.button === 0) {
-        mouse.buttonType = 0;
-        mouse.lx = event.clientX - canvasRect.left;
-        mouse.ly = event.clientY - canvasRect.top;
+    if (mouse.locked === false) {
+        if (event.button === 0) {
+            mouse.buttonType = 0;
+            mouse.lx = event.clientX - canvasRect.left;
+            mouse.ly = event.clientY - canvasRect.top;
         
-        if (game.scene === 'Title') {
-            lMouseUpTitle();
-        } else if (game.scene === 'Menu') {
-            lMouseUpMenu();
-        }
+            if (game.scene === 'Title') {
+                lMouseUpTitle();
+            } else if (game.scene === 'Menu') {
+                lMouseUpMenu();
+            } else if (game.scene === 'DungeonReady') {
+                lMouseUpDungeonReady();
+            }
+        } else if (event.button === 2) {
+            mouse.buttonType = 2;
+            mouse.rx = event.clientX - canvasRect.left;
+            mouse.ry = event.clientY - canvasRect.top;
 
-    } else if (event.button === 2) {
-        mouse.buttonType = 2;
-        mouse.rx = event.clientX - canvasRect.left;
-        mouse.ry = event.clientY - canvasRect.top;
-
-        if (game.scene === 'Title') {
-            rMouseUpTitle();
-        } else if (game.scene === 'Menu') {
-            rMouseUpMenu();
+            if (game.scene === 'Title') {
+                rMouseUpTitle();
+            } else if (game.scene === 'Menu') {
+                rMouseUpMenu();
+            }
         }
     }
 }
