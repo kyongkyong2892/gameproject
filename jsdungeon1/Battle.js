@@ -19,6 +19,15 @@ function displayBattle() {
         context.strokeRect(UI.battle.playerUnitList[i][0], UI.battle.playerUnitList[i][1], UI.cellSizeM[0], UI.cellSizeM[1]);
         context.strokeRect(UI.battle.enemyUnitList[i][0], UI.battle.enemyUnitList[i][1], UI.cellSizeM[0], UI.cellSizeM[1]);
     }
+
+    context.strokeRect(UI.battle.heroSkill[0], UI.battle.heroSkill[1], UI.battle.heroSkill[2], UI.battle.heroSkill[3]);
+
+    context.strokeRect(UI.battle.hand[0], UI.battle.hand[1], UI.battle.hand[2], UI.battle.hand[3]);
+    context.strokeRect(UI.battle.cardBack[0], UI.battle.cardBack[1], UI.battle.cardBack[2], UI.battle.cardBack[3]);
+
+    context.strokeRect(UI.battle.cardButton[0], UI.battle.cardButton[1], UI.battle.cardButton[2], UI.battle.cardButton[3]);
+    context.strokeRect(UI.battle.itemButton[0], UI.battle.itemButton[1], UI.battle.itemButton[2], UI.battle.itemButton[3]);
+    context.strokeRect(UI.battle.equipButton[0], UI.battle.equipButton[1], UI.battle.equipButton[2], UI.battle.equipButton[3]);
 }
 
 function lMouseUpBattle() {
