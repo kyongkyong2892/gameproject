@@ -12,6 +12,8 @@ function displayBattle() {
 
     context.fillText('Battle', UI.titleText[0], UI.titleText[1]);
 
+    context.strokeRect(UI.battle.descriptionBox[0], UI.battle.descriptionBox[1], UI.battle.descriptionBox[2], UI.battle.descriptionBox[3]);
+
     context.strokeRect(UI.battle.playerHero[0], UI.battle.playerHero[1], UI.battle.playerHero[2], UI.battle.playerHero[3]);
     context.strokeRect(UI.battle.enemyHero[0], UI.battle.enemyHero[1], UI.battle.enemyHero[2], UI.battle.enemyHero[3]);
 
@@ -28,6 +30,10 @@ function displayBattle() {
     context.strokeRect(UI.battle.cardButton[0], UI.battle.cardButton[1], UI.battle.cardButton[2], UI.battle.cardButton[3]);
     context.strokeRect(UI.battle.itemButton[0], UI.battle.itemButton[1], UI.battle.itemButton[2], UI.battle.itemButton[3]);
     context.strokeRect(UI.battle.equipButton[0], UI.battle.equipButton[1], UI.battle.equipButton[2], UI.battle.equipButton[3]);
+    context.strokeRect(UI.battle.infoButton[0], UI.battle.infoButton[1], UI.battle.infoButton[2], UI.battle.infoButton[3]);
+    context.strokeRect(UI.battle.runButton[0], UI.battle.runButton[1], UI.battle.runButton[2], UI.battle.runButton[3]);
+
+    context.strokeRect(UI.battle.statusBox[0], UI.battle.statusBox[1], UI.battle.statusBox[2], UI.battle.statusBox[3]);
 }
 
 function lMouseUpBattle() {

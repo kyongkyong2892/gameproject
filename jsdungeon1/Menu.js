@@ -23,7 +23,7 @@ function displayMenu() {
 
 function lMouseUpMenu() {
     if (pointInsideRect(mouse.lx, mouse.ly, UI.menu.dungeonButton[0], UI.menu.dungeonButton[1], UI.menu.dungeonButton[2], UI.menu.dungeonButton[3])) { 
-        game.scene = 'Battle';
+        game.scene = 'DungeonReady';
     }
 }
 
