@@ -23,12 +23,18 @@ var keyboard = {
     pressedKeys : {'w' : false, 'a' : false, 's' : false, 'd' : false},
 };
 
+var camera = {
+    x : 0,
+    y : 0,
+}
+
 var player = {
 };
 
 var field = {
+    place : 'Home',
     terrain : [],
-    walls : [],
+    structure : [],
     objects : [],
 };
 

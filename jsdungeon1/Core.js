@@ -10,6 +10,8 @@ function start() {
     canvas.addEventListener('keydown', keyDown, false);
     canvas.addEventListener('keyup', keyUp, false);
 
+    imageLoad();
+
     setInterval(update, 30);
 }
 
@@ -22,6 +24,8 @@ function update() {
         manageTitle();
     } else if (game.scene === 'Menu') {
         manageMenu();
+    } else if (game.scene === 'Field') {
+        manageField();
     } else if (game.scene === 'DungeonReady') {
         manageDungeonReady();
     } else if (game.scene === 'Battle') {
