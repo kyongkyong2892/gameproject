@@ -21,6 +21,8 @@ function update() {
         manageMap();
     } else if (game.scene === 'LevelSelect') {
         manageLevelSelect();
+    } else if (game.scene === 'BattleExtra') {
+        manageBattleExtra();
     }
 }
 
@@ -33,6 +35,8 @@ function onMouseClick(event) {
             mouseClickTitle();
         } else if (game.scene === 'Menu') {
             mouseClickMenu();
+        } else if (game.scene === 'LevelSelect') {
+            mouseClickLevelSelect();
         }
     }
 }

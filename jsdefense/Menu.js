@@ -18,8 +18,8 @@ function displayMenu() {
 
 function mouseClickMenu() {
     if (pointInsideRect(mouse.lx, mouse.ly, UI.menu.adventureButton[0], UI.menu.adventureButton[1], UI.menu.adventureButton[2], UI.menu.adventureButton[3])) {
-        game.scene = 'LevelSelect';
-    } else if (pointInsideRect(mouse.lx, mouse.ly, UI.menu.extraButton[0], UI.menu.extraButton[1], UI.menu.extraButton[2], UI.menu.extraButton[3])) {
         game.scene = 'Map';
+    } else if (pointInsideRect(mouse.lx, mouse.ly, UI.menu.extraButton[0], UI.menu.extraButton[1], UI.menu.extraButton[2], UI.menu.extraButton[3])) {
+        game.scene = 'LevelSelect';
     }
 }
