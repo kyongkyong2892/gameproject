@@ -18,6 +18,9 @@ function displayDungeonReady() {
     context.strokeRect(UI.dungeonReady.leftDeckButton[0], UI.dungeonReady.leftDeckButton[1], UI.dungeonReady.rightDeckButton[2], UI.dungeonReady.rightDeckButton[3]);
     context.strokeRect(UI.dungeonReady.rightDeckButton[0], UI.dungeonReady.rightDeckButton[1], UI.dungeonReady.rightDeckButton[2], UI.dungeonReady.rightDeckButton[3]);
 
+    // Start Button
+    context.strokeRect(UI.dungeonReady.startButton[0], UI.dungeonReady.startButton[1], UI.dungeonReady.startButton[2], UI.dungeonReady.startButton[3]);
+
     for (var i = 0; i < 4; i++) {
         context.strokeRect(UI.dungeonReady.heroList[i][0], UI.dungeonReady.heroList[i][1], UI.dungeonReady.heroList[i][2], UI.dungeonReady.heroList[i][3]);
         context.strokeRect(UI.dungeonReady.deckList[i][0], UI.dungeonReady.deckList[i][1], UI.dungeonReady.deckList[i][2], UI.dungeonReady.deckList[i][3]);
@@ -25,6 +28,9 @@ function displayDungeonReady() {
 }
 
 function lMouseUpDungeonReady() {
+    if (pointInsideRect(mouse.lx, mouse.ly, UI.dungeonReady.startButton[0], UI.dungeonReady.startButton[1], UI.dungeonReady.startButton[2], UI.dungeonReady.startButton[3])) {
+        game.scene = 'DungeonMap';
+    }
 }
 
 function rMouseUpDungeonReady() {

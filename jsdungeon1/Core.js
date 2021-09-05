@@ -28,6 +28,8 @@ function update() {
         manageField();
     } else if (game.scene === 'DungeonReady') {
         manageDungeonReady();
+    } else if (game.scene === 'DungeonMap') {
+        manageDungeonMap();
     } else if (game.scene === 'Battle') {
         manageBattle();
     }

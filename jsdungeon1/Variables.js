@@ -31,6 +31,14 @@ var camera = {
 var player = {
 };
 
+var dungeonMap = {
+    floor : 1,
+    playerColumn : 0,
+    cells : [[0, 2, 2, 2, 2, 0],
+             [1, 2, 2, 2, 2, 6],
+             [0, 2, 2, 2, 2, 0]],
+};
+
 var field = {
     place : 'Home',
     terrain : [],

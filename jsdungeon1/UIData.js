@@ -1,6 +1,7 @@
 var UI = {
     full : [0, 0, 1024, 576],
     titleText : [96, 96],
+    backButton : [32, 32, 96, 96],
     cellSizeM : [64, 64],
 
     portrait : [32, 416, 128, 128],
@@ -22,10 +23,16 @@ var UI = {
         leftDeckButton : [32, 288, 64, 64],
         rightDeckButton : [512, 288, 64, 64],
         deckList : [[128, 288, 64, 64], [224, 288, 64, 64], [320, 288, 64, 64], [416, 288, 64, 64]],
+
+        startButton : [864, 480, 128, 64],
     },
 
-    field : {
-        
+    dungeonMap : {
+        cells : [384, 128],
+        cellInterval : [96, 96],
+    },
+
+    field : { 
     },
 
     battle : {

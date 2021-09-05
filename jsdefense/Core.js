@@ -9,6 +9,8 @@ function start(){
 
     imageLoad();
 
+    mouse.locked = false;
+
     setInterval(update, 30);
 }
 
