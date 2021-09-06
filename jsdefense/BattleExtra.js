@@ -22,7 +22,8 @@ function displayBattleExtra() {
     // Field
     for (var i = 0; i < field.terrain.length; i++) {
         for (var j = 0; j < field.terrain[0].length; j++) {
-            context.drawImage(images.terrain[field.terrain[i][j]], UI.battleExtra.field[0] + UI.cellSizeM[0] * j, UI.battleExtra.field[1] + UI.cellSizeM[1] * i);                     context.strokeRect(UI.battleExtra.field[0] + UI.cellSizeM[0] * j, UI.battleExtra.field[1] + UI.cellSizeM[1] * i, UI.cellSizeM[0], UI.cellSizeM[1]);
+            context.drawImage(images.terrain[field.terrain[i][j]], UI.battleExtra.field[0] + UI.cellSizeM[0] * j, UI.battleExtra.field[1] + UI.cellSizeM[1] * i);
+            context.strokeRect(UI.battleExtra.field[0] + UI.cellSizeM[0] * j, UI.battleExtra.field[1] + UI.cellSizeM[1] * i, UI.cellSizeM[0], UI.cellSizeM[1]);
         }
     }
 

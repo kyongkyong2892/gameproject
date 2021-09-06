@@ -4,6 +4,7 @@ var canvasRect;
 
 var game = {
     scene : 'Title',
+    state : 'Start',
 };
 
 var mouse = {
@@ -19,16 +20,43 @@ var mouse = {
 var keyboard = {
     locked : false,
 
-    keys : 0,
+    key : 0,
     pressedKeys : {'w' : false, 'a' : false, 's' : false, 'd' : false},
 };
 
 var camera = {
     x : 0,
     y : 0,
+
+    playerRelx : 0,
+    playerRely : 0,
 }
 
-var player = {
+var playerField = {
+    life : 20,
+
+    equipments : [],
+    items : [],
+
+    cards : [],
+
+    deck1 : [],
+    deck2 : [],
+    deck3 : [],
+};
+
+var playerDungeon = {
+    life : 20,
+
+    items : [],
+};
+
+var player = {   
+    energy : 1,
+    energyMax : 1,
+
+    hand : [],
+    deck : [],
 };
 
 var dungeonMap = {
@@ -41,11 +69,18 @@ var dungeonMap = {
 
 var field = {
     place : 'Home',
+
+    playerPosition : [2, 2],
+    playerDirection : 'S',
+    playerFace : 'Front',
+    playerMoveTick : 0,
+
     terrain : [],
-    structure : [],
+    floor : [],
     objects : [],
 };
 
 var battle = {
+    turn : 0,
     field : [],
 };

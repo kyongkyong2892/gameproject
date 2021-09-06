@@ -4,7 +4,7 @@ function pointInsideRect(x, y, r1, r2, r3, r4) {
 
 function generateField(place) {
     field.terrain = [];
-    field.structure = [];
+    field.floor = [];
     field.objects = [];
 
     var temp = [];
@@ -19,14 +19,14 @@ function generateField(place) {
     }
 
     temp = [];
-    for (var i = 0; i < structureData[place].length; i++) {
+    for (var i = 0; i < floorData[place].length; i++) {
         temp = [];
 
-        for (var j = 0; j < structureData[place][0].length; j++) {
-            temp.push(structureData[place][i][j]);
+        for (var j = 0; j < floorData[place][0].length; j++) {
+            temp.push(floorData[place][i][j]);
         }
 
-        field.structure.push(temp);
+        field.floor.push(temp);
     }
 
     temp = [];
@@ -39,4 +39,8 @@ function generateField(place) {
 
         field.objects.push(temp);
     }
+}
+
+function dungeonBattleStart() {
+    game.state = 'Start';
 }

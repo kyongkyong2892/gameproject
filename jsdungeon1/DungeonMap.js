@@ -25,4 +25,14 @@ function displayDungeonMap() {
 }
 
 function lMouseUpDungeonMap() {
+    for (var i = 0; i < dungeonMap.cells.length; i++) {
+        for (var j = 0; j < dungeonMap[0].cells.length; j++) {
+            if (pointInsideRect(mouse.lx, mouse.ly, UI.dungeonMap.cells[0] + UI.dungeonMap.cellInterval[0] * j, UI.dungeonMap.cells[1] + UI.dungeonMap.cellInterval[1] * i, UI.cellSizeM[0], UI.cellSizeM[1])) {
+                if (j === dungeonMap.playerColumn + 1) {
+                    game.scene = 'Battle';
+                    dungeonBattleStart();
+                }
+            }
+        }
+    }
 }

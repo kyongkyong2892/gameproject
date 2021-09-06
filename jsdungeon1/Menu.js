@@ -26,6 +26,8 @@ function lMouseUpMenu() {
         game.scene = 'DungeonReady';
     } else if (pointInsideRect(mouse.lx, mouse.ly, UI.menu.newGameButton[0], UI.menu.newGameButton[1], UI.menu.newGameButton[2], UI.menu.newGameButton[3])) {
         game.scene = 'Field';
+        camera.x = -320;
+        camera.y = -64;
         game.place = 'Home';
         generateField('Home');
     }

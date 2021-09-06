@@ -7,8 +7,8 @@ function start() {
     canvasRect = canvas.getBoundingClientRect();
 
     canvas.addEventListener('mouseup', mouseUp, false);
-    canvas.addEventListener('keydown', keyDown, false);
-    canvas.addEventListener('keyup', keyUp, false);
+    document.addEventListener('keydown', keyDown, false);
+    document.addEventListener('keyup', keyUp, false);
 
     imageLoad();
 
@@ -63,8 +63,38 @@ function mouseUp(event) {
     }
 }
 
-function keyDown() {
+function keyDown(event) {
+    if (event.keyCode === 64 + 23) {
+        keyboard.pressedKeys['w'] = true;
+    }
+
+    if (event.keyCode === 64 + 1) {
+        keyboard.pressedKeys['a'] = true;
+    }
+    
+    if (event.keyCode === 64 + 19) {
+        keyboard.pressedKeys['s'] = true;
+    }
+
+    if (event.keyCode === 64 + 4) {
+        keyboard.pressedKeys['d'] = true;
+    }
 }
 
-function keyUp() {
+function keyUp(event) {
+    if (event.keyCode === 64 + 23) {
+        keyboard.pressedKeys['w'] = false;
+    }
+
+    if (event.keyCode === 64 + 1) {
+        keyboard.pressedKeys['a'] = false;
+    }
+    
+    if (event.keyCode === 64 + 19) {
+        keyboard.pressedKeys['s'] = false;
+    }
+
+    if (event.keyCode === 64 + 4) {
+        keyboard.pressedKeys['d'] = false;
+    }
 }
