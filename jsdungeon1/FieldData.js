@@ -41,6 +41,11 @@ var floorData = {
                   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
 };
 
+var connectionData = {
+    'Home' : [[[5, 2], 'HomeTown', [5, 4], [0, 0]]],
+    'HomeTown' : [[[5, 4], 'Home', [5, 2], [-320, -64]]],
+}
+
 var objectData = {
     'Home' : [],
 

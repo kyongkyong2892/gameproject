@@ -69,6 +69,7 @@ var dungeonMap = {
 
 var field = {
     place : 'Home',
+    placeConnection : [],
 
     playerPosition : [2, 2],
     playerDirection : 'S',

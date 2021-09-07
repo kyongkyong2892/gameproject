@@ -97,4 +97,10 @@ function keyUp(event) {
     if (event.keyCode === 64 + 4) {
         keyboard.pressedKeys['d'] = false;
     }
+
+    keyboard.key = event.keyCode;
+
+    if (game.scene === 'Field') {
+        keyUpField();
+    }
 }

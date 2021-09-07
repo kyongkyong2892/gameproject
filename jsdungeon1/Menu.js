@@ -28,7 +28,7 @@ function lMouseUpMenu() {
         game.scene = 'Field';
         camera.x = -320;
         camera.y = -64;
-        game.place = 'Home';
+        field.place = 'Home';
         generateField('Home');
     }
 }

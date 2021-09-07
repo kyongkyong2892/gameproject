@@ -25,7 +25,13 @@ function displayTerrain() {
 }
 
 function displayObjects() {
+    for (var i = 0; i < field.objects.length; i++) {
+        context.drawImage(images.field.objects[field.objects[i][2]], UI.cellSizeM[0] * field.objects[i][1] - camera.x, UI.cellSizeM[1] * field.objects[i][0] - camera.y);
+    }
 
+    for (var i = 0; i < field.placeConnection.length; i++) {
+        context.drawImage(images.warp, UI.cellSizeM[0] * field.placeConnection[i][0][1] - camera.x, UI.cellSizeM[1] * field.placeConnection[i][0][0] - camera.y);
+    }
 }
 
 function displayPlayer() {
@@ -81,8 +87,27 @@ function playerMove() {
             field.playerFace = 'Right';
         }
     }
-} 
+}
+
+function placeChange() {
+    for (var i = 0; i < field.placeConnection.length; i++) {
+        if (field.playerPosition[0] === field.placeConnection[i][0][0] && field.playerPosition[1] === field.placeConnection[i][0][1]) {
+            field.place = field.placeConnection[i][1];
+            field.playerPosition = [field.placeConnection[i][2][0], field.placeConnection[i][2][1]];
+            camera.x = field.placeConnection[i][3][0];
+            camera.y = field.placeConnection[i][3][1];
+            eraseField();
+            generateField(field.place);
+        }
+    }
+}
 
 function lMouseUpField() {
 
+}
+
+function keyUpField() {
+    if (keyboard.key === 64 + 5) {
+        placeChange();
+    }
 }

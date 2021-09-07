@@ -8,6 +8,7 @@ function generateField(place) {
     field.objects = [];
 
     var temp = [];
+
     for (var i = 0; i < terrainData[place].length; i++) {
         temp = [];
 
@@ -18,7 +19,6 @@ function generateField(place) {
         field.terrain.push(temp);
     }
 
-    temp = [];
     for (var i = 0; i < floorData[place].length; i++) {
         temp = [];
 
@@ -29,7 +29,6 @@ function generateField(place) {
         field.floor.push(temp);
     }
 
-    temp = [];
     for (var i = 0; i < objectData[place].length; i++) {
         temp = [];
 
@@ -39,6 +38,18 @@ function generateField(place) {
 
         field.objects.push(temp);
     }
+
+    for (var i = 0; i < connectionData[place].length; i++) {
+        temp = [[connectionData[place][i][0][0], connectionData[place][i][0][1]], connectionData[place][i][1], [connectionData[place][i][2][0], connectionData[place][i][2][1]], [connectionData[place][i][3][0], connectionData[place][i][3][1]]];
+        field.placeConnection.push(temp);
+    }
+}
+
+function eraseField() {
+    field.terrain = [];
+    field.floor = [];
+    field.objects = [];
+    field.placeConnection = [];
 }
 
 function dungeonBattleStart() {

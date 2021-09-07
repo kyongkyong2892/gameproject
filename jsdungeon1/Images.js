@@ -6,6 +6,10 @@ var images = {
             201 : new Image(),
             211 : new Image(),
         },
+
+        objects : {
+            1001 : new Image(),
+        },
     },
 
     characters : {
@@ -19,6 +23,7 @@ var images = {
 
     unlocked : new Image(),
     locked : new Image(),
+    warp : new Image(),
 };
 
 function imageLoad() {
@@ -32,6 +37,9 @@ function imageLoad() {
     images.characters.player['Left'].src = 'Images/Characters/PlayerLeft001.png';
     images.characters.player['Right'].src = 'Images/Characters/PlayerRight001.png';
 
+    images.field.objects[1001].src = 'Images/Objects/ID1001_PlayerHome.png';
+
     images.unlocked.src = 'Images/Unlocked.png';
     images.locked.src = 'Images/Locked.png';
+    images.warp.src = 'Images/Warp.png';
 }
