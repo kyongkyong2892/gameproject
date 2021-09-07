@@ -15,8 +15,11 @@ function displayBattleExtra() {
     // Shop
     context.strokeRect(UI.battleExtra.levelIcon[0], UI.battleExtra.levelIcon[1], UI.battleExtra.levelIcon[2], UI.battleExtra.levelIcon[3]);
     context.strokeRect(UI.battleExtra.shop[0], UI.battleExtra.shop[1], UI.battleExtra.shop[2], UI.battleExtra.shop[3]);
+    context.drawImage(images.upgrade, UI.battleExtra.levelUpButton[0], UI.battleExtra.levelUpButton[1]);
     context.strokeRect(UI.battleExtra.levelUpButton[0], UI.battleExtra.levelUpButton[1], UI.battleExtra.levelUpButton[2], UI.battleExtra.levelUpButton[3]);
+    context.drawImage(images.reroll, UI.battleExtra.rerollButton[0], UI.battleExtra.rerollButton[1]);
     context.strokeRect(UI.battleExtra.rerollButton[0], UI.battleExtra.rerollButton[1], UI.battleExtra.rerollButton[2], UI.battleExtra.rerollButton[3]);
+    context.drawImage(images.locked, UI.battleExtra.lockButton[0], UI.battleExtra.lockButton[1]);
     context.strokeRect(UI.battleExtra.lockButton[0], UI.battleExtra.lockButton[1], UI.battleExtra.lockButton[2], UI.battleExtra.lockButton[3]);
 
     // Field
