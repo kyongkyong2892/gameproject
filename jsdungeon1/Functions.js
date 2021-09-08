@@ -2,6 +2,17 @@ function pointInsideRect(x, y, r1, r2, r3, r4) {
     return x > r1 && x < r1 + r3 && y > r2 && y < r2 + r4;
 }
 
+function newGame() {
+    game.scene = 'Field';
+    camera.x = -320;
+    camera.y = -64;
+    field.place = 'Home';
+    generateField('Home');
+    
+    playerField.cards([[10001, '', 3], [10002, '', 3], [10003, '', 3], [10004, '', 3], [10005, '', 3]]);
+    playerField.deck1([[10001, '', 3], [10002, '', 3], [10003, '', 3], [10004, '', 3], [10005, '', 3]]);
+}
+
 function generateField(place) {
     field.terrain = [];
     field.floor = [];
@@ -54,4 +65,14 @@ function eraseField() {
 
 function dungeonBattleStart() {
     game.state = 'Start';
+}
+
+function findIndexFromID(ID, data) {
+    for (var i = 0; i < data.length; i++) {
+        if (data[i]['ID'] === ID) {
+            return i;
+        }
+    }
+    
+    return -1;
 }

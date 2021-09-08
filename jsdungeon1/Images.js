@@ -9,6 +9,7 @@ var images = {
 
         objects : {
             1001 : new Image(),
+            2001 : new Image(),
         },
     },
 
@@ -47,13 +48,14 @@ function imageLoad() {
     images.characters.player['Right'].src = 'Images/Characters/PlayerRight001.png';
 
     images.field.objects[1001].src = 'Images/Objects/ID1001_PlayerHome.png';
+    images.field.objects[2001].src = 'Images/Objects/ID2001_Dummy.png';
 
-    images.cards[1001].src = 'Images/Cards/Card10001.png';
-    images.cards[1002].src = 'Images/Cards/Card10002.png';
-    images.cards[1003].src = 'Images/Cards/Card10003.png';
-    images.cards[2001].src = 'Images/Cards/Card20001.png';
-    images.cards[2002].src = 'Images/Cards/Card20002.png';
-    images.cards[2003].src = 'Images/Cards/Card20003.png';
+    images.cards[10001].src = 'Images/Cards/Card10001.png';
+    images.cards[10002].src = 'Images/Cards/Card10002.png';
+    images.cards[10003].src = 'Images/Cards/Card10003.png';
+    images.cards[20001].src = 'Images/Cards/Card20001.png';
+    images.cards[20002].src = 'Images/Cards/Card20002.png';
+    images.cards[20003].src = 'Images/Cards/Card20003.png';
 
     images.unlocked.src = 'Images/Unlocked.png';
     images.locked.src = 'Images/Locked.png';

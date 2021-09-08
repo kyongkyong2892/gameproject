@@ -25,11 +25,7 @@ function lMouseUpMenu() {
     if (pointInsideRect(mouse.lx, mouse.ly, UI.menu.dungeonButton[0], UI.menu.dungeonButton[1], UI.menu.dungeonButton[2], UI.menu.dungeonButton[3])) { 
         game.scene = 'DungeonReady';
     } else if (pointInsideRect(mouse.lx, mouse.ly, UI.menu.newGameButton[0], UI.menu.newGameButton[1], UI.menu.newGameButton[2], UI.menu.newGameButton[3])) {
-        game.scene = 'Field';
-        camera.x = -320;
-        camera.y = -64;
-        field.place = 'Home';
-        generateField('Home');
+        newGame();
     }
 }
 
