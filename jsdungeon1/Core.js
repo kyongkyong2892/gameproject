@@ -48,6 +48,8 @@ function mouseUp(event) {
                 lMouseUpMenu();
             } else if (game.scene === 'DungeonReady') {
                 lMouseUpDungeonReady();
+            } else if (game.scene === 'DungeonMap') {
+                lMouseUpDungeonMap();
             }
         } else if (event.button === 2) {
             mouse.buttonType = 2;

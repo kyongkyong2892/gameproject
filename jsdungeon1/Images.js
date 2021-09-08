@@ -21,6 +21,15 @@ var images = {
         },
     },
 
+    cards : {
+        1001 : new Image(),
+        1002 : new Image(),
+        1003 : new Image(),
+        2001 : new Image(),
+        2002 : new Image(),
+        2003 : new Image(),
+    },
+
     unlocked : new Image(),
     locked : new Image(),
     warp : new Image(),
@@ -38,6 +47,13 @@ function imageLoad() {
     images.characters.player['Right'].src = 'Images/Characters/PlayerRight001.png';
 
     images.field.objects[1001].src = 'Images/Objects/ID1001_PlayerHome.png';
+
+    images.cards[1001].src = 'Images/Cards/Card1001.png';
+    images.cards[1002].src = 'Images/Cards/Card1002.png';
+    images.cards[1003].src = 'Images/Cards/Card1003.png';
+    images.cards[2001].src = 'Images/Cards/Card2001.png';
+    images.cards[2002].src = 'Images/Cards/Card2002.png';
+    images.cards[2003].src = 'Images/Cards/Card2003.png';
 
     images.unlocked.src = 'Images/Unlocked.png';
     images.locked.src = 'Images/Locked.png';

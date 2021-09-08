@@ -34,6 +34,22 @@ function displayBattle() {
     context.strokeRect(UI.battle.runButton[0], UI.battle.runButton[1], UI.battle.runButton[2], UI.battle.runButton[3]);
 
     context.strokeRect(UI.battle.statusBox[0], UI.battle.statusBox[1], UI.battle.statusBox[2], UI.battle.statusBox[3]);
+
+    if (game.state === 'Start') {
+        context.fillStyle = 'white';
+        context.font = '32px Verdana';
+        
+        context.fillRect(UI.battle.startWindow.rect[0], UI.battle.startWindow.rect[1], UI.battle.startWindow.rect[2], UI.battle.startWindow.rect[3]);
+        context.strokeRect(UI.battle.startWindow.rect[0], UI.battle.startWindow.rect[1], UI.battle.startWindow.rect[2], UI.battle.startWindow.rect[3]);
+
+        context.strokeRect(UI.battle.startWindow.descriptionBox[0], UI.battle.startWindow.descriptionBox[1], UI.battle.startWindow.descriptionBox[2], UI.battle.startWindow.descriptionBox[3]);
+
+        for (var i = 0; i < 3; i++) {
+            context.strokeRect(UI.battle.startWindow.startCards[i][0], UI.battle.startWindow.startCards[i][1], UI.battle.startWindow.startCards[i][2], UI.battle.startWindow.startCards[i][3]);
+        }
+
+        context.strokeRect(UI.battle.startWindow.startButton[0], UI.battle.startWindow.startButton[1], UI.battle.startWindow.startButton[2], UI.battle.startWindow.startButton[3]);
+    }
 }
 
 function lMouseUpBattle() {
