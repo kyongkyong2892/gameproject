@@ -67,23 +67,31 @@ function playerMove() {
     }
 
     if (field.playerDirection === 'S') {
-        if (keyboard.pressedKeys['w'] === true && field.floor[field.playerPosition[0] - 1][field.playerPosition[1]] < 99) {
-            field.playerDirection = 'U';
+        if (keyboard.pressedKeys['w'] === true) {
+            if (field.floor[field.playerPosition[0] - 1][field.playerPosition[1]] < 99) {
+                field.playerDirection = 'U';
+            }
             field.playerFace = 'Back';
         }
 
-        if (keyboard.pressedKeys['a'] === true && field.floor[field.playerPosition[0]][field.playerPosition[1] - 1] < 99) {
-            field.playerDirection = 'L';
+        if (keyboard.pressedKeys['a'] === true) {
+            if (field.floor[field.playerPosition[0]][field.playerPosition[1] - 1] < 99) {
+                field.playerDirection = 'L';
+            }
             field.playerFace = 'Left';
         }
 
-        if (keyboard.pressedKeys['s'] === true && field.floor[field.playerPosition[0] + 1][field.playerPosition[1]] < 99) {
-            field.playerDirection = 'D';
+        if (keyboard.pressedKeys['s'] === true) {
+            if (field.floor[field.playerPosition[0] + 1][field.playerPosition[1]] < 99) {
+                field.playerDirection = 'D';
+            }
             field.playerFace = 'Front';
         }
 
-        if (keyboard.pressedKeys['d'] === true && field.floor[field.playerPosition[0]][field.playerPosition[1] + 1] < 99) {
-            field.playerDirection = 'R';
+        if (keyboard.pressedKeys['d'] === true) {
+            if (field.floor[field.playerPosition[0]][field.playerPosition[1] + 1] < 99) {
+                field.playerDirection = 'R';
+            }
             field.playerFace = 'Right';
         }
     }
