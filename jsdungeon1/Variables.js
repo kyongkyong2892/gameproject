@@ -49,12 +49,14 @@ var playerDungeon = {
     life : 20,
 
     items : [],
+    deck : [],
 };
 
 var player = {   
     energy : 1,
     energyMax : 1,
 
+    startHandChange : [false, false, false],
     hand : [],
     deck : [],
 };

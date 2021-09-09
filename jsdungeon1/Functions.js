@@ -63,8 +63,31 @@ function eraseField() {
     field.placeConnection = [];
 }
 
+function dungeonStart(heroID, skillID, deckID) {
+    playerDungeon.deck = [];
+    
+    // Deck Generate
+    for (var i = 0; i < deckData[deckID]['Cards'].length; i++) {
+        var tempID = deckData[deckID]['Cards'][i];
+        var tempIndex = findIndexFromID(tempID, cardData);
+        playerDungeon.deck.push({'ID' : tempID,
+                                 'Type' : cardData[tempIndex]['Type'],
+                                 'Element' : cardData[tempIndex]['Element'],
+                                 'Rarity' : cardData[tempIndex]['Rarity'],
+                                 'Name' : cardData[tempIndex]['Name'],
+                                 'Energy' : cardData[tempIndex]['Energy'],
+                                 'Stat' : [cardData[tempIndex]['Stat'][0], cardData[tempIndex]['Stat'][1]],
+                                 'Special' : cardData[tempIndex]['Special'],
+                                 'Play' : [cardData[tempIndex]['Play'][0], cardData[tempIndex]['Play'][1], cardData[tempIndex]['Play'][2]],
+                                 'Upgrade' : ''});
+    }
+    
+    playerDungeon.life = 20;
+}
+
 function dungeonBattleStart() {
     game.state = 'Start';
+    generateDeck(4);
 }
 
 function findIndexFromID(ID, data) {

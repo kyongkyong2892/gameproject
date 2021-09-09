@@ -26,6 +26,10 @@ var images = {
         10001 : new Image(),
         10002 : new Image(),
         10003 : new Image(),
+        10004 : new Image(),
+        10005 : new Image(),
+        10006 : new Image(),
+        10007 : new Image(),
         20001 : new Image(),
         20002 : new Image(),
         20003 : new Image(),
@@ -34,6 +38,7 @@ var images = {
     unlocked : new Image(),
     locked : new Image(),
     warp : new Image(),
+    selectFrame : new Image(),
 };
 
 function imageLoad() {
@@ -53,6 +58,10 @@ function imageLoad() {
     images.cards[10001].src = 'Images/Cards/Card10001.png';
     images.cards[10002].src = 'Images/Cards/Card10002.png';
     images.cards[10003].src = 'Images/Cards/Card10003.png';
+    images.cards[10004].src = 'Images/Cards/Card10004.png';
+    images.cards[10005].src = 'Images/Cards/Card10005.png';
+    images.cards[10006].src = 'Images/Cards/Card10006.png';
+    images.cards[10007].src = 'Images/Cards/Card10007.png';
     images.cards[20001].src = 'Images/Cards/Card20001.png';
     images.cards[20002].src = 'Images/Cards/Card20002.png';
     images.cards[20003].src = 'Images/Cards/Card20003.png';
@@ -60,4 +69,5 @@ function imageLoad() {
     images.unlocked.src = 'Images/Unlocked.png';
     images.locked.src = 'Images/Locked.png';
     images.warp.src = 'Images/Warp.png';
+    images.selectFrame.src = 'Images/SelectFrame.png';
 }

@@ -30,6 +30,7 @@ function displayDungeonReady() {
 function lMouseUpDungeonReady() {
     if (pointInsideRect(mouse.lx, mouse.ly, UI.dungeonReady.startButton[0], UI.dungeonReady.startButton[1], UI.dungeonReady.startButton[2], UI.dungeonReady.startButton[3])) {
         game.scene = 'DungeonMap';
+        dungeonStart(1, 1, 1);
     }
 }
 
