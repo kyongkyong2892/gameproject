@@ -17,7 +17,7 @@ var game = {
 var shop = {
     level : 0,
     upgrades : 0,
-    itemPool : [],
+    itemPool : [10001, 10002, 10003],
     itemList : [],
 
     rerollCost : 2,
