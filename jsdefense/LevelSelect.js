@@ -21,6 +21,7 @@ function mouseClickLevelSelect() {
     for (var i = 0; i < 6; i++) {
         if (pointInsideRect(mouse.lx, mouse.ly, UI.levelSelect.levels[i][0], UI.levelSelect.levels[i][1], UI.levelSelect.levels[i][2], UI.levelSelect.levels[i][3])) {
             game.scene = 'BattleExtra';
+            battleExtraStart();
         }
     }
 }

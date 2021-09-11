@@ -15,7 +15,7 @@ var game = {
 };
 
 var shop = {
-    level : 0,
+    level : 1,
     upgrades : 0,
     itemPool : [10001, 10002, 10003],
     itemList : [],
@@ -23,6 +23,14 @@ var shop = {
     rerollCost : 2,
     upgradeCost : [0, [6, 6, 6], [8, 8, 8], [10, 10, 10], [12, 12, 12]],
     lockCost : 0,
+};
+
+var player = {
+    gold : 0,
+    goldMax : 0,
+    
+    hand : [],
+    skill : [],
 };
 
 var field = {

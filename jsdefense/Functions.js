@@ -9,10 +9,17 @@ function shopRoll() {
     var tempList = []
 
     for (var i = 0; i < 4; i++) {
-        tempIndex1 = Math.floor(Math.random());
-        tempIndex2 = findIndexFromID(shop.pool[tempIndex1], cardData);
-        tempList.push({'ID' : shop.pool[tempIndex1]});
+        tempIndex1 = Math.floor(Math.random() * shop.itemPool.length);
+        tempIndex2 = findIndexFromID(shop.itemPool[tempIndex1], cardData);
+        shop.itemList.push({'ID' : shop.itemPool[tempIndex1]});
     }
+}
+
+function battleExtraStart() {
+    shop.level = 1;
+    player.gold = 6;
+    player.goldMax = 6;
+    shopRoll();
 }
 
 function findIndexFromID(ID, data) {

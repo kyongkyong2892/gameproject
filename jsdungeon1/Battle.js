@@ -37,7 +37,7 @@ function displayBattle() {
 
     if (game.state === 'Start' || game.state === 'StartConfirm') {
         context.fillStyle = 'white';
-        context.font = '32px Verdana';
+        context.font = 'bold 16px Verdana';
         
         context.fillRect(UI.battle.startWindow.rect[0], UI.battle.startWindow.rect[1], UI.battle.startWindow.rect[2], UI.battle.startWindow.rect[3]);
         context.strokeRect(UI.battle.startWindow.rect[0], UI.battle.startWindow.rect[1], UI.battle.startWindow.rect[2], UI.battle.startWindow.rect[3]);
@@ -50,6 +50,18 @@ function displayBattle() {
             
             if (player.startHandChange[i] === true && game.state === 'Start') {
                 context.drawImage(images.selectFrame, UI.battle.startWindow.startCards[i][0], UI.battle.startWindow.startCards[i][1]);
+            }
+            
+            context.fillStyle = 'yellow';
+            context.fillRect(UI.battle.startWindow.startCards[i][0], UI.battle.startWindow.startCards[i][1], 16, 16);
+            context.fillStyle = 'black';
+            context.fillText(`${player.deck[i]['Energy']}`, UI.battle.startWindow.startCards[i][0] + 4, UI.battle.startWindow.startCards[i][1] + 16, 16, 16);
+            
+            if (player.deck[i]['Type'] === 'Unit') {
+                context.fillStyle = 'yellow';
+                context.fillRect(UI.battle.startWindow.startCards[i][0] + 32, UI.battle.startWindow.startCards[i][1] + 48, 32, 16);
+                context.fillStyle = 'black';
+                context.fillText(`${player.deck[i]['Stat'][0]}/${player.deck[i]['Stat'][1]}`, UI.battle.startWindow.startCards[i][0] + 36, UI.battle.startWindow.startCards[i][1] + 64);
             }
         }
 

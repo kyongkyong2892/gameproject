@@ -39,6 +39,8 @@ function onMouseClick(event) {
             mouseClickMenu();
         } else if (game.scene === 'LevelSelect') {
             mouseClickLevelSelect();
+        } else if (game.scene === 'BattleExtra') {
+            mouseClickBattleExtra();
         }
     }
 }
