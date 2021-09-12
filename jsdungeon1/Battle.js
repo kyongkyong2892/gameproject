@@ -18,7 +18,7 @@ function displayBattle() {
     context.strokeRect(UI.battle.playerHero[0], UI.battle.playerHero[1], UI.battle.playerHero[2], UI.battle.playerHero[3]);
     context.strokeRect(UI.battle.enemyHero[0], UI.battle.enemyHero[1], UI.battle.enemyHero[2], UI.battle.enemyHero[3]);
 
-    context.font = 'bold 14px Verdana';
+    context.font = '14px Verdana';
     
     for (var i = 0; i < 6; i++) {
         context.strokeRect(UI.battle.playerUnitList[i][0], UI.battle.playerUnitList[i][1], UI.cellSizeM[0], UI.cellSizeM[1]);
@@ -29,14 +29,30 @@ function displayBattle() {
         if (battle.field[i]['Type'] === 'Hero') {
             if (battle.field[i]['Side'] === 0) {
                 context.drawImage(images.heroes[1001], UI.battle.playerHeroImage[0], UI.battle.playerHeroImage[1]);
+                context.fillStyle = 'yellow';
+                context.fillRect(UI.battle.playerHeroImage[0] + UI.statCell[0], UI.battle.playerHeroImage[1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
+                context.fillStyle = 'black';
+                context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.playerHeroImage[0] + UI.statText[0], UI.battle.playerHeroImage[1] + UI.statText[1]);
             } else {
                 context.drawImage(images.heroes[2001], UI.battle.enemyHeroImage[0], UI.battle.enemyHeroImage[1]);
+                context.fillStyle = 'yellow';
+                context.fillRect(UI.battle.enemyHeroImage[0] + UI.statCell[0], UI.battle.enemyHeroImage[1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
+                context.fillStyle = 'black';
+                context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.enemyHeroImage[0] + UI.statText[0], UI.battle.enemyHeroImage[1] + UI.statText[1]);
             }
         } else if (battle.field[i]['Type'] === 'Unit') {
             if (battle.field[i]['Side'] === 0) {
                 context.drawImage(images.cards[battle.field[i]['ID']], UI.battle.playerUnitList[battle.field[i]['Position']][0], UI.battle.playerUnitList[battle.field[i]['Position']][1]);
+                context.fillStyle = 'yellow';
+                context.fillRect(UI.battle.playerUnitList[0] + UI.statCell[0], UI.battle.playerUnitList[1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
+                context.fillStyle = 'black';
+                context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.playerUnitList[0] + UI.statText[0], UI.battle.playerUnitList[1] + UI.statText[1]);
             } else {
                 context.drawImage(images.cards[battle.field[i]['ID']], UI.battle.enemyUnitList[battle.field[i]['Position']][0], UI.battle.enmeyUnitList[battle.field[i]['Position']][1]);
+                context.fillStyle = 'yellow';
+                context.fillRect(UI.battle.enemyUnitList[0] + UI.statCell[0], UI.battle.enemyUnitList[1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
+                context.fillStyle = 'black';
+                context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.enemyUnitList[0] + UI.statText[0], UI.battle.enemyUnitList[1] + UI.statText[1]);
             }
         }
     }
@@ -51,15 +67,15 @@ function displayBattle() {
         context.drawImage(images.cards[player.hand[i]['ID']], UI.battle.hand[0] + UI.cellSizeM[0] * i, UI.battle.hand[1]);
 
         context.fillStyle = 'yellow';
-        context.fillRect(UI.battle.hand[0] + UI.cellSizeM[0] * i, UI.battle.hand[1], 16, 16);
+        context.fillRect(UI.battle.hand[0] + UI.cellSizeM[0] * i + UI.energyCell[0], UI.battle.hand[1] + UI.energyCell[1], UI.energyCell[2], UI.energyCell[3]);
         context.fillStyle = 'black';
-        context.fillText(`${player.hand[i]['Energy']}`, UI.battle.hand[0] + UI.cellSizeM[0] * i + 4, UI.battle.hand[1] + 16);
+        context.fillText(`${player.hand[i]['Energy']}`, UI.battle.hand[0] + UI.cellSizeM[0] * i + UI.energyText[0], UI.battle.hand[1] + UI.energyText[1]);
 
         if (player.hand[i]['Type'] === 'Unit') {
             context.fillStyle = 'yellow';
-            context.fillRect(UI.battle.hand[0] + UI.cellSizeM[0] * i + 32, UI.battle.hand[1] + 48, 32, 16);
+            context.fillRect(UI.battle.hand[0] + UI.cellSizeM[0] * i + UI.statCell[0], UI.battle.hand[1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
             context.fillStyle = 'black';
-            context.fillText(`${player.hand[i]['Stat'][0]}/${player.hand[i]['Stat'][1]}`, UI.battle.hand[0] + UI.cellSizeM[0] * i + 36, UI.battle.hand[1] + 64);
+            context.fillText(`${player.hand[i]['Stat'][0]}/${player.hand[i]['Stat'][1]}`, UI.battle.hand[0] + UI.cellSizeM[0] * i + UI.statText[0], UI.battle.hand[1] + UI.statText[1]);
         }
     }
 
@@ -71,6 +87,7 @@ function displayBattle() {
     context.strokeRect(UI.battle.equipButton[0], UI.battle.equipButton[1], UI.battle.equipButton[2], UI.battle.equipButton[3]);
     context.strokeRect(UI.battle.infoButton[0], UI.battle.infoButton[1], UI.battle.infoButton[2], UI.battle.infoButton[3]);
     context.strokeRect(UI.battle.runButton[0], UI.battle.runButton[1], UI.battle.runButton[2], UI.battle.runButton[3]);
+    context.strokeRect(UI.battle.cancelButton[0], UI.battle.cancelButton[1], UI.battle.cancelButton[2], UI.battle.cancelButton[3]);
 
     // Status
     context.strokeRect(UI.battle.statusBox[0], UI.battle.statusBox[1], UI.battle.statusBox[2], UI.battle.statusBox[3]);
@@ -87,7 +104,7 @@ function displayBattle() {
 
     if (game.state === 'Start' || game.state === 'StartConfirm') {
         context.fillStyle = 'white';
-        context.font = 'bold 14px Verdana';
+        context.font = '14px Verdana';
         
         context.fillRect(UI.battle.startWindow.rect[0], UI.battle.startWindow.rect[1], UI.battle.startWindow.rect[2], UI.battle.startWindow.rect[3]);
         context.strokeRect(UI.battle.startWindow.rect[0], UI.battle.startWindow.rect[1], UI.battle.startWindow.rect[2], UI.battle.startWindow.rect[3]);
@@ -103,15 +120,15 @@ function displayBattle() {
             }
             
             context.fillStyle = 'yellow';
-            context.fillRect(UI.battle.startWindow.startCards[i][0], UI.battle.startWindow.startCards[i][1], 16, 16);
+            context.fillRect(UI.battle.startWindow.startCards[i][0] + UI.energyCell[0], UI.battle.startWindow.startCards[i][1] + UI.energyCell[1], UI.energyCell[2], UI.energyCell[3]);
             context.fillStyle = 'black';
-            context.fillText(`${player.deck[i]['Energy']}`, UI.battle.startWindow.startCards[i][0] + 4, UI.battle.startWindow.startCards[i][1] + 16, 16, 16);
+            context.fillText(`${player.deck[i]['Energy']}`, UI.battle.startWindow.startCards[i][0] + UI.energyText[0], UI.battle.startWindow.startCards[i][1] + UI.energyText[1]);
             
             if (player.deck[i]['Type'] === 'Unit') {
                 context.fillStyle = 'yellow';
-                context.fillRect(UI.battle.startWindow.startCards[i][0] + 32, UI.battle.startWindow.startCards[i][1] + 48, 32, 16);
+                context.fillRect(UI.battle.startWindow.startCards[i][0] + UI.statCell[0], UI.battle.startWindow.startCards[i][1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
                 context.fillStyle = 'black';
-                context.fillText(`${player.deck[i]['Stat'][0]}/${player.deck[i]['Stat'][1]}`, UI.battle.startWindow.startCards[i][0] + 36, UI.battle.startWindow.startCards[i][1] + 64);
+                context.fillText(`${player.deck[i]['Stat'][0]}/${player.deck[i]['Stat'][1]}`, UI.battle.startWindow.startCards[i][0] + UI.statText[0], UI.battle.startWindow.startCards[i][1] + UI.statText[1]);
             }
         }
 
@@ -136,13 +153,20 @@ function lMouseUpBattle() {
             startHandChange();
             game.state = 'StartConfirm';
         }
-    }
-    
-    else if (game.state === 'StartConfirm') {
+    } else if (game.state === 'StartConfirm') {
         if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.startWindow.startButton[0], UI.battle.startWindow.startButton[1], UI.battle.startWindow.startButton[2], UI.battle.startWindow.startButton[3])) {
             game.state = 'YourTurn';
             gameStart();
             firstTurnStart();
+        }
+    } else if (game.state === 'YourTurn') {
+        if (game.click === 'None') {
+            for (var i = 0; i < player.hand.length; i++) {
+                if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.hand[0] + UI.cellSizeM[0] * i, UI.battle.hand[1], UI.cellSizeM[0], UI.cellSizeM[1])) {
+                    game.click = 'ClickedCard';
+                    player.selectedHand = i;
+                }
+            }
         }
     }
 }

@@ -47,6 +47,7 @@ var images = {
     leftButton : new Image(),
     rightButton : new Image(),
     startButton : new Image(),
+    cancelButton : new Image(),
     battle : new Image(),
     flag : new Image(),
 

@@ -4,6 +4,10 @@ var UI = {
     backButton : [32, 32, 96, 96],
     cellSizeM : [64, 64],
     cellSizeS : [32, 32],
+    energyCell : [0, 0, 16, 16],
+    energyText : [4, 16],
+    statCell : [16, 48, 48, 16],
+    statText : [20, 64],
 
     portrait : [32, 416, 128, 128],
     dialogue : [160, 416, 768, 128],
@@ -66,6 +70,7 @@ var UI = {
         equipButton : [256, 416, 64, 64],
         infoButton : [320, 416, 64, 64],
         runButton : [384, 416, 64, 64],
+        cancelButton : [768, 416, 64, 64],
         
         statusBox : [448, 416, 320, 64],
         energyOrb : [512, 448],

@@ -5,6 +5,7 @@ var canvasRect;
 var game = {
     scene : 'Title',
     state : 'Start',
+    click : 'None',
 };
 
 var mouse = {
@@ -59,6 +60,8 @@ var player = {
     startHandChange : [false, false, false],
     hand : [],
     deck : [],
+
+    selectedHand : -1,
 };
 
 var dungeonSelect = {
