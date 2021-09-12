@@ -25,6 +25,22 @@ function displayBattle() {
         context.strokeRect(UI.battle.enemyUnitList[i][0], UI.battle.enemyUnitList[i][1], UI.cellSizeM[0], UI.cellSizeM[1]);
     }
 
+    for (var i = 0; i < battle.field.length; i++) {
+        if (battle.field[i]['Type'] === 'Hero') {
+            if (battle.field[i]['Side'] === 0) {
+                context.drawImage(images.heroes[1001], UI.battle.playerHeroImage[0], UI.battle.playerHeroImage[1]);
+            } else {
+                context.drawImage(images.heroes[2001], UI.battle.enemyHeroImage[0], UI.battle.enemyHeroImage[1]);
+            }
+        } else if (battle.field[i]['Type'] === 'Unit') {
+            if (battle.field[i]['Side'] === 0) {
+                context.drawImage(images.cards[battle.field[i]['ID']], UI.battle.playerUnitList[battle.field[i]['Position']][0], UI.battle.playerUnitList[battle.field[i]['Position']][1]);
+            } else {
+                context.drawImage(images.cards[battle.field[i]['ID']], UI.battle.enemyUnitList[battle.field[i]['Position']][0], UI.battle.enmeyUnitList[battle.field[i]['Position']][1]);
+            }
+        }
+    }
+
     // Lower Bar
     context.strokeRect(UI.battle.heroSkill[0], UI.battle.heroSkill[1], UI.battle.heroSkill[2], UI.battle.heroSkill[3]);
 

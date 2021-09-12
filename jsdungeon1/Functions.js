@@ -94,6 +94,9 @@ function gameStart() {
     for (var i = 0; i < 3; i++) {
         drawFromDeck();
     }
+
+    battle.field.push({'ID' : 1001, 'Type' : 'Hero', 'Element' : 'Neutral', 'Rarity' : 'Basic', 'Name' : 'Hero 1', 'Energy' : 0, 'Stat' : [0, 20, 20], 'Special' : '', 'Side' : 0, 'Moves' : [0, 0], 'Position' : -1});
+    battle.field.push({'ID' : 1002, 'Type' : 'Hero', 'Element' : 'Neutral', 'Rarity' : 'Basic', 'Name' : 'Green Jelly Slime', 'Energy' : 0, 'Stat' : [0, 10, 10], 'Special' : '', 'Side' : 1, 'Moves' : [0, 0], 'Position' : -1});
 }
 
 function firstTurnStart() {

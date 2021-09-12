@@ -24,6 +24,7 @@ var images = {
 
     heroes : {
         1001 : new Image(),
+        2001 : new Image(),
     },
 
     decks : {
@@ -74,6 +75,7 @@ function imageLoad() {
     images.field.objects[2001].src = 'Images/Objects/ID2001_Dummy.png';
 
     images.heroes[1001].src = 'Images/Heroes/Hero1001.png';
+    images.heroes[2001].src = 'Images/Heroes/Hero2001.png';
 
     images.decks[1001].src = 'Images/Decks/Deck1001.png';
 
