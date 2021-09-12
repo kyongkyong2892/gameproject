@@ -3,6 +3,7 @@ var UI = {
     titleText : [96, 96],
     backButton : [32, 32, 96, 96],
     cellSizeM : [64, 64],
+    cellSizeS : [32, 32],
 
     portrait : [32, 416, 128, 128],
     dialogue : [160, 416, 768, 128],
@@ -30,6 +31,8 @@ var UI = {
     dungeonMap : {
         cells : [384, 128],
         cellInterval : [96, 96],
+
+        statButton : [1128, 32, 64, 64],
     },
 
     field : { 
@@ -65,5 +68,6 @@ var UI = {
         runButton : [384, 416, 64, 64],
         
         statusBox : [448, 416, 320, 64],
+        energyOrb : [512, 448],
     },
 };

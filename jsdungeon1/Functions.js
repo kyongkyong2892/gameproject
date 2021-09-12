@@ -90,6 +90,16 @@ function dungeonBattleStart() {
     generateDeck(4);
 }
 
+function gameStart() {
+    for (var i = 0; i < 3; i++) {
+        drawFromDeck();
+    }
+}
+
+function firstTurnStart() {
+    drawFromDeck();
+}
+
 function findIndexFromID(ID, data) {
     for (var i = 0; i < data.length; i++) {
         if (data[i]['ID'] === ID) {

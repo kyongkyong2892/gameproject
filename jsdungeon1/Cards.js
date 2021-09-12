@@ -57,7 +57,13 @@ function startHandChange() {
 }
 
 function drawFromDeck() {
-    
+    if (player.deck.length > 0) {
+        var tempCard = player.deck.shift();
+        
+        if (player.hand.length < 8) {
+            player.hand.push(tempCard);
+        }
+    }
 }
 
 function playCard() {

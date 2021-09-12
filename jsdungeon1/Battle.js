@@ -14,30 +14,64 @@ function displayBattle() {
 
     context.strokeRect(UI.battle.descriptionBox[0], UI.battle.descriptionBox[1], UI.battle.descriptionBox[2], UI.battle.descriptionBox[3]);
 
+    // Field
     context.strokeRect(UI.battle.playerHero[0], UI.battle.playerHero[1], UI.battle.playerHero[2], UI.battle.playerHero[3]);
     context.strokeRect(UI.battle.enemyHero[0], UI.battle.enemyHero[1], UI.battle.enemyHero[2], UI.battle.enemyHero[3]);
 
+    context.font = 'bold 14px Verdana';
+    
     for (var i = 0; i < 6; i++) {
         context.strokeRect(UI.battle.playerUnitList[i][0], UI.battle.playerUnitList[i][1], UI.cellSizeM[0], UI.cellSizeM[1]);
         context.strokeRect(UI.battle.enemyUnitList[i][0], UI.battle.enemyUnitList[i][1], UI.cellSizeM[0], UI.cellSizeM[1]);
     }
 
+    // Lower Bar
     context.strokeRect(UI.battle.heroSkill[0], UI.battle.heroSkill[1], UI.battle.heroSkill[2], UI.battle.heroSkill[3]);
 
+    // // Hand
     context.strokeRect(UI.battle.hand[0], UI.battle.hand[1], UI.battle.hand[2], UI.battle.hand[3]);
+    
+    for (var i = 0; i < player.hand.length; i++) {
+        context.drawImage(images.cards[player.hand[i]['ID']], UI.battle.hand[0] + UI.cellSizeM[0] * i, UI.battle.hand[1]);
+
+        context.fillStyle = 'yellow';
+        context.fillRect(UI.battle.hand[0] + UI.cellSizeM[0] * i, UI.battle.hand[1], 16, 16);
+        context.fillStyle = 'black';
+        context.fillText(`${player.hand[i]['Energy']}`, UI.battle.hand[0] + UI.cellSizeM[0] * i + 4, UI.battle.hand[1] + 16);
+
+        if (player.hand[i]['Type'] === 'Unit') {
+            context.fillStyle = 'yellow';
+            context.fillRect(UI.battle.hand[0] + UI.cellSizeM[0] * i + 32, UI.battle.hand[1] + 48, 32, 16);
+            context.fillStyle = 'black';
+            context.fillText(`${player.hand[i]['Stat'][0]}/${player.hand[i]['Stat'][1]}`, UI.battle.hand[0] + UI.cellSizeM[0] * i + 36, UI.battle.hand[1] + 64);
+        }
+    }
+
     context.strokeRect(UI.battle.cardBack[0], UI.battle.cardBack[1], UI.battle.cardBack[2], UI.battle.cardBack[3]);
 
+    // Button
     context.strokeRect(UI.battle.cardButton[0], UI.battle.cardButton[1], UI.battle.cardButton[2], UI.battle.cardButton[3]);
     context.strokeRect(UI.battle.itemButton[0], UI.battle.itemButton[1], UI.battle.itemButton[2], UI.battle.itemButton[3]);
     context.strokeRect(UI.battle.equipButton[0], UI.battle.equipButton[1], UI.battle.equipButton[2], UI.battle.equipButton[3]);
     context.strokeRect(UI.battle.infoButton[0], UI.battle.infoButton[1], UI.battle.infoButton[2], UI.battle.infoButton[3]);
     context.strokeRect(UI.battle.runButton[0], UI.battle.runButton[1], UI.battle.runButton[2], UI.battle.runButton[3]);
 
+    // Status
     context.strokeRect(UI.battle.statusBox[0], UI.battle.statusBox[1], UI.battle.statusBox[2], UI.battle.statusBox[3]);
+    
+    for (var i = 0; i < 8; i++) {
+        if (i < player.energy) {
+            context.drawImage(images.energyOrbFull, UI.battle.energyOrb[0] + UI.cellSizeS[0] * i, UI.battle.energyOrb[1]);
+        } else if (i < player.energyMax) {
+            context.drawImage(images.energyOrbEmpty, UI.battle.energyOrb[0] + UI.cellSizeS[0] * i, UI.battle.energyOrb[1]);
+        } else {
+            context.drawImage(images.energyOrbVoid, UI.battle.energyOrb[0] + UI.cellSizeS[0] * i, UI.battle.energyOrb[1]);
+        }
+    }
 
     if (game.state === 'Start' || game.state === 'StartConfirm') {
         context.fillStyle = 'white';
-        context.font = 'bold 16px Verdana';
+        context.font = 'bold 14px Verdana';
         
         context.fillRect(UI.battle.startWindow.rect[0], UI.battle.startWindow.rect[1], UI.battle.startWindow.rect[2], UI.battle.startWindow.rect[3]);
         context.strokeRect(UI.battle.startWindow.rect[0], UI.battle.startWindow.rect[1], UI.battle.startWindow.rect[2], UI.battle.startWindow.rect[3]);
@@ -65,6 +99,7 @@ function displayBattle() {
             }
         }
 
+        context.drawImage(images.startButton, UI.battle.startWindow.startButton[0], UI.battle.startWindow.startButton[1]);
         context.strokeRect(UI.battle.startWindow.startButton[0], UI.battle.startWindow.startButton[1], UI.battle.startWindow.startButton[2], UI.battle.startWindow.startButton[3]);
     }
 }
@@ -90,6 +125,8 @@ function lMouseUpBattle() {
     else if (game.state === 'StartConfirm') {
         if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.startWindow.startButton[0], UI.battle.startWindow.startButton[1], UI.battle.startWindow.startButton[2], UI.battle.startWindow.startButton[3])) {
             game.state = 'YourTurn';
+            gameStart();
+            firstTurnStart();
         }
     }
 }

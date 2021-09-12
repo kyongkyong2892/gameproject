@@ -22,6 +22,14 @@ var images = {
         },
     },
 
+    heroes : {
+        1001 : new Image(),
+    },
+
+    decks : {
+        1001 : new Image(),  
+    },
+
     cards : {
         10001 : new Image(),
         10002 : new Image(),
@@ -35,10 +43,20 @@ var images = {
         20003 : new Image(),
     },
 
+    leftButton : new Image(),
+    rightButton : new Image(),
+    startButton : new Image(),
+    battle : new Image(),
+    flag : new Image(),
+
     unlocked : new Image(),
     locked : new Image(),
     warp : new Image(),
     selectFrame : new Image(),
+
+    energyOrbFull : new Image(),
+    energyOrbEmpty : new Image(),
+    energyOrbVoid : new Image(),
 };
 
 function imageLoad() {
@@ -55,6 +73,10 @@ function imageLoad() {
     images.field.objects[1001].src = 'Images/Objects/ID1001_PlayerHome.png';
     images.field.objects[2001].src = 'Images/Objects/ID2001_Dummy.png';
 
+    images.heroes[1001].src = 'Images/Heroes/Hero1001.png';
+
+    images.decks[1001].src = 'Images/Decks/Deck1001.png';
+
     images.cards[10001].src = 'Images/Cards/Card10001.png';
     images.cards[10002].src = 'Images/Cards/Card10002.png';
     images.cards[10003].src = 'Images/Cards/Card10003.png';
@@ -66,8 +88,18 @@ function imageLoad() {
     images.cards[20002].src = 'Images/Cards/Card20002.png';
     images.cards[20003].src = 'Images/Cards/Card20003.png';
 
+    images.leftButton.src = 'Images/LeftButton.png';
+    images.rightButton.src = 'Images/RightButton.png';
+    images.startButton.src = 'Images/StartButton.png';
+    images.flag.src = 'Images/Flag.png';
+    images.battle.src = 'Images/Battle.png';
+
     images.unlocked.src = 'Images/Unlocked.png';
     images.locked.src = 'Images/Locked.png';
     images.warp.src = 'Images/Warp.png';
     images.selectFrame.src = 'Images/SelectFrame.png';
+
+    images.energyOrbEmpty.src = 'Images/EnergyOrbEmpty.png';
+    images.energyOrbFull.src = 'Images/EnergyOrbFull.png';
+    images.energyOrbVoid.src = 'Images/EnergyOrbVoid.png';
 }

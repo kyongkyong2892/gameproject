@@ -18,6 +18,12 @@ function displayDungeonMap() {
                 context.strokeRect(UI.dungeonMap.cells[0] + UI.dungeonMap.cellInterval[0] * j, UI.dungeonMap.cells[1] + UI.dungeonMap.cellInterval[1] * i, UI.cellSizeM[0], UI.cellSizeM[1]);
                 if (j > dungeonMap.playerColumn + 1) {
                     context.drawImage(images.locked, UI.dungeonMap.cells[0] + UI.dungeonMap.cellInterval[0] * j, UI.dungeonMap.cells[1] + UI.dungeonMap.cellInterval[1] * i);
+                } else {
+                    if (dungeonMap.cells[i][j] === 1) {
+                        context.drawImage(images.flag, UI.dungeonMap.cells[0] + UI.dungeonMap.cellInterval[0] * j, UI.dungeonMap.cells[1] + UI.dungeonMap.cellInterval[1] * i);
+                    } else if (dungeonMap.cells[i][j] === 2) {
+                        context.drawImage(images.battle, UI.dungeonMap.cells[0] + UI.dungeonMap.cellInterval[0] * j, UI.dungeonMap.cells[1] + UI.dungeonMap.cellInterval[1] * i);
+                    }
                 }
             }
         }

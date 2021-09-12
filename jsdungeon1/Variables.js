@@ -61,6 +61,15 @@ var player = {
     deck : [],
 };
 
+var dungeonSelect = {
+    heroList : [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008],
+    heroLocked : [false, true, true, true, true, true, true, true],
+    deckList : [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008],
+    deckLocked : [false, true, true, true, true, true, true, true],
+    selectedHero : -1,
+    selectedDeck : -1,
+}
+
 var dungeonMap = {
     floor : 1,
     playerColumn : 0,
