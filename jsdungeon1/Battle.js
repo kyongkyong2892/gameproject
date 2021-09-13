@@ -9,7 +9,8 @@ function displayBattle() {
     context.strokeStyle = 'black';
 
     context.clearRect(UI.full[0], UI.full[1], UI.full[2], UI.full[3]);
-
+    context.strokeRect(UI.backbutton[0], UI.backbutton[1], UI.backbutton[2], UI.backButton[3]);
+    
     context.fillText('Battle', UI.titleText[0], UI.titleText[1]);
 
     context.strokeRect(UI.battle.descriptionBox[0], UI.battle.descriptionBox[1], UI.battle.descriptionBox[2], UI.battle.descriptionBox[3]);

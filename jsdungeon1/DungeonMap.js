@@ -10,7 +10,8 @@ function displayDungeonMap() {
 
     context.clearRect(UI.full[0], UI.full[1], UI.full[2], UI.full[3]);
 
-    context.fillText('Map', UI.titleText[0], UI.titleText[2]); 
+    context.fillText('Map', UI.titleText[0], UI.titleText[2]);
+    context.strokeRect(UI.backButton[0], UI.backButton[1], UI.backButton[2], UI.backButton[3]);
 
     for (var i = 0; i < dungeonMap.cells.length; i++) {
         for (var j = 0; j < dungeonMap.cells[0].length; j++) {
