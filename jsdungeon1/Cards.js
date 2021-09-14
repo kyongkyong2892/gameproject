@@ -66,6 +66,61 @@ function drawFromDeck() {
     }
 }
 
+function availableCellsGenerate() {
+    player.availableCells = [];
+    var tempCard = player.hand[player.selectedHand];
+
+    for (var i = 0; i < 2; i++) {
+        for (var j = 0; j < 6; j++) {
+            if (tempCard['Play'][1] === 'PE' && battle.fieldUnits[i][j] === false) {
+                player.availableCells.push([i, j]);
+            }
+        }
+    }
+}
+
 function playCard() {
-    
+    var tempCard = player.hand[player.selectedHand];
+
+    if (validityCheck() === false) {
+        return;
+    }
+
+    player.energy -= tempCard['Energy'];
+
+    if (tempCard['Play'][1] === 'PE' && tempCard['Play'][0] === 'U') {
+        var tempUnit = {'ID' : tempCard['ID'],
+                        'Type' : tempCard['Type'],
+                        'Element' : tempCard['Element'],
+                        'Rarity' : tempCard['Rarity'],
+                        'Name' : tempCard['Name'],
+                        'Energy' : tempCard['Energy'],
+                        'Stat' : [tempCard['Stat'][0], tempCard['Stat'][1]],
+                        'Special' : tempCard['Special'],
+                        'Side' : 0,
+                        'Moves' : [0, 0],
+                        'Position' : player.card1Input[1]};
+
+        battle.field.push(tempUnit);
+    }
+}
+
+function summonUnit(place, unit) {
+
+}
+
+function validityCheck() {
+    var tempCard = player.hand[player.selectedHand];
+
+    if (player.energy < tempCard['Energy']) {
+        return false;
+    }
+
+    if (player.card1Input[1] < 6) {
+        if (tempCard['Play'][1] === 'PE' && player.card1Input[0] === 0 && battle.fieldUnits[0][player.card1Input[1]] === false) {
+            return true;
+        }
+    }   
+
+    return false;
 }

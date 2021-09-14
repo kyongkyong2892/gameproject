@@ -1,13 +1,13 @@
 var UI = {
     full : [0, 0, 1024, 576],
     titleText : [96, 96],
-    backButton : [32, 32, 96, 96],
+    backButton : [32, 32, 64, 64],
     cellSizeM : [64, 64],
     cellSizeS : [32, 32],
     energyCell : [0, 0, 16, 16],
-    energyText : [4, 16],
+    energyText : [4, 14],
     statCell : [16, 48, 48, 16],
-    statText : [20, 64],
+    statText : [20, 62],
 
     portrait : [32, 416, 128, 128],
     dialogue : [160, 416, 768, 128],

@@ -9,7 +9,7 @@ function displayBattle() {
     context.strokeStyle = 'black';
 
     context.clearRect(UI.full[0], UI.full[1], UI.full[2], UI.full[3]);
-    context.strokeRect(UI.backbutton[0], UI.backbutton[1], UI.backbutton[2], UI.backButton[3]);
+    context.strokeRect(UI.backButton[0], UI.backButton[1], UI.backButton[2], UI.backButton[3]);
     
     context.fillText('Battle', UI.titleText[0], UI.titleText[1]);
 
@@ -45,15 +45,15 @@ function displayBattle() {
             if (battle.field[i]['Side'] === 0) {
                 context.drawImage(images.cards[battle.field[i]['ID']], UI.battle.playerUnitList[battle.field[i]['Position']][0], UI.battle.playerUnitList[battle.field[i]['Position']][1]);
                 context.fillStyle = 'yellow';
-                context.fillRect(UI.battle.playerUnitList[0] + UI.statCell[0], UI.battle.playerUnitList[1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
+                context.fillRect(UI.battle.playerUnitList[battle.field[i]['Position']][0] + UI.statCell[0], UI.battle.playerUnitList[battle.field[i]['Position']][1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
                 context.fillStyle = 'black';
-                context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.playerUnitList[0] + UI.statText[0], UI.battle.playerUnitList[1] + UI.statText[1]);
+                context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.playerUnitList[battle.field[i]['Position']][0] + UI.statText[0], UI.battle.playerUnitList[battle.field[i]['Position']][1] + UI.statText[1]);
             } else {
                 context.drawImage(images.cards[battle.field[i]['ID']], UI.battle.enemyUnitList[battle.field[i]['Position']][0], UI.battle.enmeyUnitList[battle.field[i]['Position']][1]);
                 context.fillStyle = 'yellow';
-                context.fillRect(UI.battle.enemyUnitList[0] + UI.statCell[0], UI.battle.enemyUnitList[1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
+                context.fillRect(UI.battle.enemyUnitList[battle.field[i]['Position']][0] + UI.statCell[0], UI.battle.enemyUnitList[battle.field[i]['Position']][1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
                 context.fillStyle = 'black';
-                context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.enemyUnitList[0] + UI.statText[0], UI.battle.enemyUnitList[1] + UI.statText[1]);
+                context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.enemyUnitList[battle.field[i]['Position']][0] + UI.statText[0], UI.battle.enemyUnitList[battle.field[i]['Position']][1] + UI.statText[1]);
             }
         }
     }
@@ -77,6 +77,16 @@ function displayBattle() {
             context.fillRect(UI.battle.hand[0] + UI.cellSizeM[0] * i + UI.statCell[0], UI.battle.hand[1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
             context.fillStyle = 'black';
             context.fillText(`${player.hand[i]['Stat'][0]}/${player.hand[i]['Stat'][1]}`, UI.battle.hand[0] + UI.cellSizeM[0] * i + UI.statText[0], UI.battle.hand[1] + UI.statText[1]);
+        }
+    }
+
+    if (player.selectedHand > 0 && game.click === 'ClickedCard') {
+        context.drawImage(images.selectFrame, UI.battle.hand[0] + UI.cellSizeM[0] * player.selectedHand, UI.battle.hand[1]);
+
+        for (var i = 0; i < player.availableCells.length; i++) {
+            if (player.availableCells[i][0] === 0) {
+                context.drawImage(images.selectFrame, UI.battle.playerUnitList[player.availableCells[i][1]][0], UI.battle.playerUnitList[player.availableCells[i][1]][1]);
+            }
         }
     }
 
@@ -116,10 +126,6 @@ function displayBattle() {
             context.drawImage(images.cards[player.deck[i]['ID']], UI.battle.startWindow.startCards[i][0], UI.battle.startWindow.startCards[i][1]);
             context.strokeRect(UI.battle.startWindow.startCards[i][0], UI.battle.startWindow.startCards[i][1], UI.battle.startWindow.startCards[i][2], UI.battle.startWindow.startCards[i][3]);
             
-            if (player.startHandChange[i] === true && game.state === 'Start') {
-                context.drawImage(images.selectFrame, UI.battle.startWindow.startCards[i][0], UI.battle.startWindow.startCards[i][1]);
-            }
-            
             context.fillStyle = 'yellow';
             context.fillRect(UI.battle.startWindow.startCards[i][0] + UI.energyCell[0], UI.battle.startWindow.startCards[i][1] + UI.energyCell[1], UI.energyCell[2], UI.energyCell[3]);
             context.fillStyle = 'black';
@@ -130,6 +136,10 @@ function displayBattle() {
                 context.fillRect(UI.battle.startWindow.startCards[i][0] + UI.statCell[0], UI.battle.startWindow.startCards[i][1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
                 context.fillStyle = 'black';
                 context.fillText(`${player.deck[i]['Stat'][0]}/${player.deck[i]['Stat'][1]}`, UI.battle.startWindow.startCards[i][0] + UI.statText[0], UI.battle.startWindow.startCards[i][1] + UI.statText[1]);
+            }
+
+            if (player.startHandChange[i] === true && game.state === 'Start') {
+                context.drawImage(images.selectFrame, UI.battle.startWindow.startCards[i][0], UI.battle.startWindow.startCards[i][1]);
             }
         }
 
@@ -166,7 +176,45 @@ function lMouseUpBattle() {
                 if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.hand[0] + UI.cellSizeM[0] * i, UI.battle.hand[1], UI.cellSizeM[0], UI.cellSizeM[1])) {
                     game.click = 'ClickedCard';
                     player.selectedHand = i;
+                    availableCellsGenerate();
                 }
+            }
+        } else if (game.click === 'ClickedCard') {
+            if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.cancelButton[0], UI.battle.cancelButton[1], UI.battle.cancelButton[2], UI.battle.cancelButton[3])) {
+                game.click = 'None';
+                player.selectedHand = -1;
+            }
+
+            for (var i = 0; i < 6; i++) {
+                if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.playerUnitList[i][0], UI.battle.playerUnitList[i][1], UI.cellSizeM[0], UI.cellSizeM[1])) {
+                    player.card1Input = [0, i];
+                    playCard();
+                    game.click = 'None';
+                    player.selectedHand = -1;
+                }
+            }
+
+            for (var i = 0; i < 6; i++) {
+                if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.enemyUnitList[i][0], UI.battle.enemyUnitList[i][1], UI.cellSizeM[0], UI.cellSizeM[1])) {
+                    player.card1Input = [1, i];
+                    playCard();
+                    game.click = 'None';
+                    player.selectedHand = -1;
+                }
+            }
+
+            if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.playerHeroImage[0], UI.battle.playerHeroImage[1], UI.cellSizeM[0], UI.cellSizeM[1])) {
+                player.card1Input = [0, 6];
+                playCard();
+                game.click = 'None';
+                player.selectedHand = -1;
+            }
+
+            if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.enemyHeroImage[0], UI.battle.enemyHeroImage[1], UI.cellSizeM[0], UI.cellSizeM[1])) {
+                player.card1Input = [1, 6];
+                playCard();
+                game.click = 'None';
+                player.selectedHand = -1;
             }
         }
     }

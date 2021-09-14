@@ -62,6 +62,8 @@ var player = {
     deck : [],
 
     selectedHand : -1,
+    availableCells : [],
+    card1Input : [],
 };
 
 var dungeonSelect = {
@@ -98,4 +100,5 @@ var field = {
 var battle = {
     turn : 0,
     field : [],
+    fieldUnits : [[false, false, false, false, false, false], [false, false, false, false, false, false]],
 };
