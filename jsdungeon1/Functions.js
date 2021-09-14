@@ -103,6 +103,26 @@ function firstTurnStart() {
     drawFromDeck();
 }
 
+function turnEnd() {
+
+}
+
+function turnStart() {
+    if (player.energyMax < 8) {
+        player.energyMax += 1;
+    }
+    
+    player.energy = player.energyMax;
+    
+    for (var i = 0; i < battle.field.length; i++) {
+        if (battle.field[i]['Side'] === 0) {
+            battle.field[i]['Moves'] = [1, 1];
+        }
+    }
+    
+    drawFromDeck();
+}
+
 function findIndexFromID(ID, data) {
     for (var i = 0; i < data.length; i++) {
         if (data[i]['ID'] === ID) {

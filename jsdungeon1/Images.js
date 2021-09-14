@@ -43,6 +43,10 @@ var images = {
         20002 : new Image(),
         20003 : new Image(),
     },
+    
+    cardBacks : {
+        1 : new Image(),
+    },
 
     leftButton : new Image(),
     rightButton : new Image(),
@@ -55,6 +59,7 @@ var images = {
     locked : new Image(),
     warp : new Image(),
     selectFrame : new Image(),
+    canMove : new Image(),
 
     energyOrbFull : new Image(),
     energyOrbEmpty : new Image(),
@@ -90,6 +95,8 @@ function imageLoad() {
     images.cards[20001].src = 'Images/Cards/Card20001.png';
     images.cards[20002].src = 'Images/Cards/Card20002.png';
     images.cards[20003].src = 'Images/Cards/Card20003.png';
+    
+    images.cardBacks[1].src = 'Images/CardBacks/CardBack001.png';
 
     images.leftButton.src = 'Images/LeftButton.png';
     images.rightButton.src = 'Images/RightButton.png';
@@ -101,6 +108,7 @@ function imageLoad() {
     images.locked.src = 'Images/Locked.png';
     images.warp.src = 'Images/Warp.png';
     images.selectFrame.src = 'Images/SelectFrame.png';
+    images.canMove.src = 'Images/CanMove.png';
 
     images.energyOrbEmpty.src = 'Images/EnergyOrbEmpty.png';
     images.energyOrbFull.src = 'Images/EnergyOrbFull.png';

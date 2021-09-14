@@ -103,6 +103,9 @@ function playCard() {
 
         battle.field.push(tempUnit);
     }
+    
+    battle.fieldUnits[0][player.card1Input[1]] = true;
+    player.hand.splice(player.selectedHand, 1);
 }
 
 function summonUnit(place, unit) {

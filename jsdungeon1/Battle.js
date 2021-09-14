@@ -34,12 +34,18 @@ function displayBattle() {
                 context.fillRect(UI.battle.playerHeroImage[0] + UI.statCell[0], UI.battle.playerHeroImage[1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
                 context.fillStyle = 'black';
                 context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.playerHeroImage[0] + UI.statText[0], UI.battle.playerHeroImage[1] + UI.statText[1]);
+                if (battle.field[i]['Moves'][0] > 0 || battle.field[i]['Moves'][1] > 0) {
+                    context.drawImage(images.canMove, UI.battle.playerHeroImage[0], UI.battle.playerHeroImage[1]);
+                }
             } else {
                 context.drawImage(images.heroes[2001], UI.battle.enemyHeroImage[0], UI.battle.enemyHeroImage[1]);
                 context.fillStyle = 'yellow';
                 context.fillRect(UI.battle.enemyHeroImage[0] + UI.statCell[0], UI.battle.enemyHeroImage[1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
                 context.fillStyle = 'black';
                 context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.enemyHeroImage[0] + UI.statText[0], UI.battle.enemyHeroImage[1] + UI.statText[1]);
+                if (battle.field[i]['Moves'][0] > 0 || battle.field[i]['Moves'][1] > 0) {
+                    context.drawImage(images.canMove, UI.battle.enemyHeroImage[0], UI.battle.enemyHeroImage[1]);
+                }
             }
         } else if (battle.field[i]['Type'] === 'Unit') {
             if (battle.field[i]['Side'] === 0) {
@@ -48,12 +54,18 @@ function displayBattle() {
                 context.fillRect(UI.battle.playerUnitList[battle.field[i]['Position']][0] + UI.statCell[0], UI.battle.playerUnitList[battle.field[i]['Position']][1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
                 context.fillStyle = 'black';
                 context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.playerUnitList[battle.field[i]['Position']][0] + UI.statText[0], UI.battle.playerUnitList[battle.field[i]['Position']][1] + UI.statText[1]);
+                if (battle.field[i]['Moves'][0] > 0 || battle.field[i]['Moves'][1] > 0) {
+                    context.drawImage(images.canMove, UI.battle.playerUnitList[battle.field[i]['Position']][0], UI.battle.playerUnitList[battle.field[i]['Position']][1]);
+                }
             } else {
                 context.drawImage(images.cards[battle.field[i]['ID']], UI.battle.enemyUnitList[battle.field[i]['Position']][0], UI.battle.enmeyUnitList[battle.field[i]['Position']][1]);
                 context.fillStyle = 'yellow';
                 context.fillRect(UI.battle.enemyUnitList[battle.field[i]['Position']][0] + UI.statCell[0], UI.battle.enemyUnitList[battle.field[i]['Position']][1] + UI.statCell[1], UI.statCell[2], UI.statCell[3]);
                 context.fillStyle = 'black';
                 context.fillText(`${battle.field[i]['Stat'][0]}/${battle.field[i]['Stat'][1]}`, UI.battle.enemyUnitList[battle.field[i]['Position']][0] + UI.statText[0], UI.battle.enemyUnitList[battle.field[i]['Position']][1] + UI.statText[1]);
+                if (battle.field[i]['Moves'][0] > 0 || battle.field[i]['Moves'][1] > 0) {
+                    context.drawImage(images.canMove, UI.battle.enemyUnitList[battle.field[i]['Position']][0], UI.battle.enemyUnitList[battle.field[i]['Position']][1]);
+                }
             }
         }
     }
@@ -80,7 +92,7 @@ function displayBattle() {
         }
     }
 
-    if (player.selectedHand > 0 && game.click === 'ClickedCard') {
+    if (player.selectedHand > -1 && game.click === 'ClickedCard') {
         context.drawImage(images.selectFrame, UI.battle.hand[0] + UI.cellSizeM[0] * player.selectedHand, UI.battle.hand[1]);
 
         for (var i = 0; i < player.availableCells.length; i++) {
@@ -90,6 +102,7 @@ function displayBattle() {
         }
     }
 
+    context.drawImage(images.cardBacks[1], UI.battle.cardBack[0], UI.battle.cardBack[1]);
     context.strokeRect(UI.battle.cardBack[0], UI.battle.cardBack[1], UI.battle.cardBack[2], UI.battle.cardBack[3]);
 
     // Button
@@ -178,6 +191,11 @@ function lMouseUpBattle() {
                     player.selectedHand = i;
                     availableCellsGenerate();
                 }
+            }
+            
+            if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.cardBack[0], UI.battle.cardBack[1], UI.battle.cardBack[2], UI.battle.cardBack[3])) {
+                turnEnd();
+                turnStart();
             }
         } else if (game.click === 'ClickedCard') {
             if (pointInsideRect(mouse.lx, mouse.ly, UI.battle.cancelButton[0], UI.battle.cancelButton[1], UI.battle.cancelButton[2], UI.battle.cancelButton[3])) {
